@@ -18,7 +18,7 @@ Feature: Add employee  in HRMS
   Scenario: Add employee using parameter
     When user enters "Maher" and "ms" and "rahim" in the name fields
     And user clicks on save button
-    Then user added successfully
+    Then user added successfully and Verified from Backend
 
   @ddt
   Scenario Outline: Adding multiple employees

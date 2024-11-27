@@ -66,7 +66,7 @@ public class LoginSteps extends CommonMethods {
     @Then("user can see error message")
     public void user_can_see_error_message() {
         String actualMessage = loginPage.errorMessage.getText();
-        Assert.assertEquals("Invalid cred", actualMessage);
+        Assert.assertEquals("Invalid credentials", actualMessage);
       //  System.out.println("Steps will be implemented later");
     }
 }

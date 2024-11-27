@@ -86,7 +86,6 @@ public class AddEmployeeSteps extends CommonMethods {
             sendText(employee.get("middleName"),addEmployeePage.middlenameLocator);
             sendText(employee.get("lastName"),addEmployeePage.lastnameLocator);
 
-
          //   WebElement saveButton = driver.findElement(By.id("btnSave"));
           //  saveButton.click();
             click(addEmployeePage.saveButton);
@@ -112,7 +111,12 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @Then("user added successfully")
     public void user_added_successfully() {
-        String query="select emp_firstname,emp_middle_name,emp_lastname from hs_hr_employees where employee_id="+employeeId;
+        System.out.println("Employee ID: " + employeeId);
+    }
+
+    @Then("user added successfully and Verified from Backend")
+    public void user_added_successfully_and_verified_from_backend() {
+        String query="select emp_firstname,emp_middle_name,emp_lastname from hs_hr_employees where employee_id= "+ employeeId;
         List<Map<String,String>> dataFromDb= DbReader.fetch(query);
         String actualFN=dataFromDb.get(0).get("emp_firstname");
         String actualMN=dataFromDb.get(0).get("emp_middle_name");
@@ -120,7 +124,7 @@ public class AddEmployeeSteps extends CommonMethods {
         Assert.assertEquals(expectedFN,actualFN);
         Assert.assertEquals(expectedMN,actualMN);
         Assert.assertEquals(expectedLN,actualLN);
-
+        System.out.println("Employee ID: " + employeeId);
     }
 
 
